@@ -15,7 +15,7 @@
 
         //generate the snowflakes and apply attributes
 
-        let maxFlakes = 100;
+        let maxFlakes = 300;
         let flakes = [];
 
         //loop through the empty flakes and apply attributes
@@ -24,8 +24,8 @@
             flakes.push({
                 xCordinate: Math.random() * width,
                 yCordinate: Math.random() * height,
-                radius: Math.random() * 5 + 2,
-                density: Math.random() + 1,
+                radius: Math.random() * 2 + 2,
+                density: Math.random() + .05,
 
             })
         }
@@ -35,7 +35,10 @@
         function drawFlakes(){
 
             ctx.clearRect(0, 0, width, height);
-            ctx.fillStyle = "white";
+            var my_gradient=ctx.createLinearGradient(0,0,0,170);
+            my_gradient.addColorStop(0,"grey");
+            my_gradient.addColorStop(1,"white");
+            ctx.fillStyle=my_gradient;
             ctx.beginPath();
             for(let i =0; i < maxFlakes; i++){
                 let newFlakes = flakes[i];
