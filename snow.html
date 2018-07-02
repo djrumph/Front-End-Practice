@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
  <style>
 
      :root{
@@ -22,7 +21,7 @@
     
     <script>
     
-   window.onload = function (){
+   window.onload = function(){
 
 //get the canvas and context and store in vars
        let canvas = document.getElementById("sky");
@@ -42,12 +41,12 @@
 
         //loop through the empty flakes and apply attributes
 
-        for(let i =0; i<maxFlakes; i++){
+        for(let i = 0; i<maxFlakes; i++){
             flakes.push({
-                xCordinate:Math.random() *width,
-                yCordinate:Math.random() *height,
-                radius:Math.random() *5+2,
-                density:Math.random() *+1,
+                xCordinate: Math.random() * width,
+                yCordinate: Math.random() * height,
+                radius: Math.random() * 5 + 2,
+                density: Math.random() + 1,
 
             })
         }
@@ -56,13 +55,13 @@
 
         function drawFlakes(){
 
-            ctx.cleatRect(0,0,width,height);
+            ctx.clearRect(0, 0, width, height);
             ctx.fillStyle = "white";
             ctx.beginPath();
-            for(let i =0; i<maxFlakes; i++){
+            for(let i =0; i < maxFlakes; i++){
                 let newFlakes = flakes[i];
                 ctx.moveTo(newFlakes.xCordinate, newFlakes.yCordinate);
-                ctx.arc(newFlakes.xCordinate, newFlakes.yCordinate, flakes.radius, 0, true);
+                ctx.arc(newFlakes.xCordinate, newFlakes.yCordinate, newFlakes.radius, 0, Math.PI*2, true);
 
             }
 
@@ -75,25 +74,28 @@
 
         function moveFlakes(){
             angle += 0.01;
-            for(let i =0; i<maxFlakes; i++){
+            for(let i = 0; i < maxFlakes; i++){
 
                 //store current flakes
-                let newflakes = flakes[i];
+                let newFlakes = flakes[i];
 
                 //update X and Y coordinates of each snowflake
                 newFlakes.yCordinate += Math.pow(newFlakes.density, 2) + 1;
-                newFlakes.xCordinate += Math.sin(angle) + 2;
+                newFlakes.xCordinate += Math.sin(angle) * 2;
 
                 //if the snowflake reaches the bottom, send a new one to the top
 
                 if(newFlakes.yCordinate > height){
-                    flakes[i] = {xCordinate: Math.random()*width, yCordinate: 0, radius: newflakes.radius, density:newflakes.density}
-                }
+                    flakes[i] = {xCordinate: Math.random()*width, yCordinate: 0, radius: newFlakes.radius, density:newFlakes.density}
+                };
         }
 
 
 
    }
+
+setInterval(drawFlakes,25);
+   
 }
     
     </script>
