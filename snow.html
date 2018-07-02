@@ -51,6 +51,27 @@
 
             })
         }
+
+        // draw flakes onto canvas
+
+        function drawFlakes(){
+
+            ctx.cleatRect(0,0,width,height);
+            ctx.fillStyle = "white";
+            ctx.beginPath();
+            for(let i =0; i<maxFlakes; i++){
+                let newFlakes = flakes[i];
+                ctx.moveTo(newFlakes.xCordinate, newFlakes.yCordinate);
+                ctx.arc(newFlakes.xCordinate, newFlakes.yCordinate, flakes.radius, 0, true);
+
+            }
+
+            ctx.fill();
+            moveFlakes();
+        }
+
+
+
    }
     
     </script>
