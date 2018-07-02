@@ -70,9 +70,31 @@
             moveFlakes();
         }
 
+        //animate the flakes
+        let angle = 0;
+
+        function moveFlakes(){
+            angle += 0.01;
+            for(let i =0; i<maxFlakes; i++){
+
+                //store current flakes
+                let newflakes = flakes[i];
+
+                //update X and Y coordinates of each snowflake
+                newFlakes.yCordinate += Math.pow(newFlakes.density, 2) + 1;
+                newFlakes.xCordinate += Math.sin(angle) + 2;
+
+                //if the snowflake reaches the bottom, send a new one to the top
+
+                if(newFlakes.yCordinate > height){
+                    flakes[i] = {xCordinate: Math.random()*width, yCordinate: 0, radius: newflakes.radius, density:newflakes.density}
+                }
+        }
+
 
 
    }
+}
     
     </script>
 </body>
