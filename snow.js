@@ -25,7 +25,8 @@
                 xCordinate: Math.random() * width,
                 yCordinate: Math.random() * height,
                 radius: Math.random() * 2 + 2,
-                density: Math.random() + .05,
+                density: Math.random() + .05, //use this to control speed. 
+                // an idea is to make this faster and change the shape to mimic rain
 
             })
         }
