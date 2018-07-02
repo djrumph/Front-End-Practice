@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+ <style>
+
+     :root{
+         --backgroundColor: #102a54;
+     }
+    body{
+       background-color: var(--backgroundColor);
+    }
+
+</style>
+</head>
+<body>
+
+    <canvas id="sky"></canvas>
+    
+    <script>
+    
+   window.onload = function (){
+
+//get the canvas and context and store in vars
+       let canvas = document.getElementById("sky");
+       var ctx = canvas.getContext("2d");
+
+//set canvas dims to window height and width
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+
+        canvas.width = width;
+        canvas.height = height;
+
+        //generate the snowflakes and apply attributes
+
+        let maxFlakes = 100;
+        let flakes = [];
+
+        //loop through the empty flakes and apply attributes
+
+        for(let i =0; i<maxFlakes; i++){
+            flakes.push({
+                xCordinate:Math.random() *width,
+                yCordinate:Math.random() *height,
+                radius:Math.random() *5+2,
+                density:Math.random() *+1,
+
+            })
+        }
+   }
+    
+    </script>
+</body>
+</html>

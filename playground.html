@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    :root{
+        --color:#dbdfde;
+        --color2:#181a1d;
+        --colorBackground: #b49e1f;
+        --box1: #ffffff;
+        --box2: #681212;
+        --box3: #201e81;
+        --box4: #0f3f2f;
+    }
+
+    *{
+        margin:0;
+
+    }
+
+    .color{
+       color: var(--color);
+    }
+
+    .color2{
+        color:var(--color2);
+    }
+
+    .backgroundColor{
+        background-color: var(--colorBackground);
+    }
+
+    .app {
+            display:                grid;
+            grid-template-columns:  1fr 1fr;
+            grid-template-rows:     100px 200px 400px;
+           
+            grid-template-areas:
+                "r m"
+                "b b"
+                "s t";
+                
+    }
+
+.top-left {
+    grid-area: r;
+    background-color: var(--box1);
+}
+.top-right {
+    grid-area: m;
+    background-color: var(--box2);
+}
+.bottom-left {
+    grid-area: s;
+    background-color: var(--box3);
+}
+.bottom-right {
+    grid-area: t;
+    background-color: var(--box4);
+}
+
+.middle{
+    grid-area: b;
+    background-color: aquamarine;
+}
+
+
+    
+    </style>
+</head>
+<body class="backgroundColor app">
+    <div class="bottom-right">
+    <h1 class ="color2" >box4</h1>
+    <p  class ="color"> box4</p>
+   </div>
+    
+   <div class="bottom-left">
+    <p  class ="color">box3</p>
+    <p  class ="color"> box3</p>
+   </div>
+   <div class = "top-right">
+        <h2  class ="color2">box2</h2>
+        <h2  class ="color2">box2</h2>
+    </div>
+
+    <div class = "top-left">
+    <p  class ="color">box 1</p>
+    <h2  class ="color2">box2</h2>
+    </div>
+
+    <div class = "middle">
+            <p  class ="color">box middle</p>
+            <h2  class ="color2">box middle</h2>
+    </div>
+
+
+</body>
+</html>
