@@ -80,7 +80,18 @@ loop = function(){
         rectangle.x = 32;
     }
 
-    
+    context.fillStyle = "#202020";
+    context.fillRext(0,0,320,180);// x, y, width, height
+    context.fillStyle = "#ff0000";// hex for red
+    context.beginPath();
+    context.rect(rectangle.x, rectangle.y, rectangle.width, rectangle);
+    context.fill();
+    context.strokeStyle = "#202830";
+    context.linewidth = 4;
+    context.beginPath();
+    context.moveTo(0, 164);
+    context.lineTo(320, 164);
+    context.stroke();
 }
 
 
