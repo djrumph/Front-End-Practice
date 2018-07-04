@@ -4,8 +4,8 @@ let context, controller, rectangle, loop;
 
 context = document.querySelector("canvas").getContext("2d");
 
-context.canvas.height = 180;
-context.canvas.width = 320;
+context.canvas.height = 360;
+context.canvas.width = 640;
 
 rectangle = {
 
@@ -47,7 +47,7 @@ loop = function(){
 
     if (controller.up && rectangle.jumping == false){
 
-        rectangle.y_velocity -= 20;
+        rectangle.y_velocity -= 40;
         rectangle.jumping = true;
     }
 
@@ -59,34 +59,34 @@ loop = function(){
         rectangle.x_velocity +=0.5;
     }
 
-    rectangle.y_velocity += 1.5;// gravity
+    rectangle.y_velocity += 0.5;// gravity
     rectangle.x += rectangle.x_velocity;
     rectangle.y += rectangle.y_velocity;
     rectangle.x_velocity *= 0.9;//friction
     rectangle.y_velocity *= 0.9;//friction
 
     //if rectangle is falling below floor line
-    if(rectangle.y >180 -16 -32){
+    if(rectangle.y >360 -16 -32){
         rectangle.jumping = false;
-        rectangle.y = 180 -16-32;
+        rectangle.y = 360 -16-32;
         rectangle.y_velocity = 0;
 
     }
 
     //if rectantle is going off the left of the screen
-    if(rectangle.x <-32){
+    if(rectangle.x <-64){
 
-        rectangle.x = 320;
+        rectangle.x = 640;
 
 
         //if rectangle goes past right boundary
-    } else if (rectangle.x >320){
+    } else if (rectangle.x >640){
 
-        rectangle.x = -32;
+        rectangle.x = -64;
     }
 
   context.fillStyle = "#202020";
-  context.fillRect(0, 0, 320, 180);// x, y, width, height
+  context.fillRect(0, 0, 640, 360);// x, y, width, height
   context.fillStyle = "#ff0000";// hex for red
   context.beginPath();
   context.rect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
@@ -94,8 +94,8 @@ loop = function(){
   context.strokeStyle = "#202830";
   context.lineWidth = 4;
   context.beginPath();
-  context.moveTo(0, 164);
-  context.lineTo(320, 164);
+  context.moveTo(0, 346);
+  context.lineTo(640, 346);
   context.stroke();
 
     //call update when the browser is ready to draw again
