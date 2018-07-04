@@ -1,3 +1,5 @@
+
+
 let context, controller, rectangle, loop;
 
 context = document.querySelector("canvas").getContext("2d");
@@ -63,7 +65,7 @@ loop = function(){
     rectangle.x_velocity *= 0.9;//friction
     rectangle.y_velocity *= 0.9;//friction
 
-    if(rectantle.y >180 -16 -32){
+    if(rectangle.y >180 -16 -32){
         rectangle.jumping = false;
         rectangle.y = 180 -16-32;
         rectangle.y_velocity = 0;
@@ -84,7 +86,7 @@ loop = function(){
     context.fillRext(0,0,320,180);// x, y, width, height
     context.fillStyle = "#ff0000";// hex for red
     context.beginPath();
-    context.rect(rectangle.x, rectangle.y, rectangle.width, rectangle);
+    context.rect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
     context.fill();
     context.strokeStyle = "#202830";
     context.linewidth = 4;
@@ -92,6 +94,8 @@ loop = function(){
     context.moveTo(0, 164);
     context.lineTo(320, 164);
     context.stroke();
+
+    window.requestAnimationFrame(loop);
 }
 
 
