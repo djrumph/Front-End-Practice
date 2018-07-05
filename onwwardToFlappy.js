@@ -1,6 +1,6 @@
 
 
-let context, controller, rectangle, loop;
+let context, controller, rectangle, loop, pipe;
 
 context = document.querySelector("canvas").getContext("2d");
 
@@ -18,6 +18,17 @@ rectangle = {
   y_velocity:0
 
 };
+
+pipe = {
+
+    height:100,
+    width:32,
+    x:200, // center of the canvas
+    x_velocity:0,
+    y:0,
+    y_velocity:0
+  
+  };
 
 controller  = {
    
@@ -49,6 +60,7 @@ loop = function(){
 
         rectangle.y_velocity -= 3;
         rectangle.jumping = true;
+        
     }
 
     if(controller.left){
@@ -86,8 +98,16 @@ loop = function(){
         rectangle.x = 640;
 
 
-        //if rectangle goes past right boundary
-    } else if (rectangle.x >640){
+    }   
+
+    if(rectangle.x >=100 && rectangle.x <=120 && rectangle.y >= ){
+
+        console.log("worked");
+    }
+        
+       
+     //if rectangle goes past right boundary
+    else if (rectangle.x >640){
 
         rectangle.x = -64;
     }
@@ -104,6 +124,12 @@ loop = function(){
   context.moveTo(0, 346);
   context.lineTo(640, 346);
   context.stroke();
+  //top rectangle
+  context.fillRect(100,0,20,120);
+  context.fillRect(100,220,20,125);
+  //bottom rectangle
+  context.fillRect(400,0,20,120);
+  context.fillRect(400,220,20,125);
 
     //call update when the browser is ready to draw again
     window.requestAnimationFrame(loop);
