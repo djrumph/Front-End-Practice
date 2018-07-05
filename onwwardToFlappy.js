@@ -100,9 +100,12 @@ loop = function(){
 
     }   
 
-    if(rectangle.x >=100 && rectangle.x <=120 && rectangle.y >= ){
+    //first try at collision detection
+    if(rectangle.x >=100 && rectangle.x <=120 && rectangle.y >= 220 || rectangle.x >=100 && rectangle.x <=120 && rectangle.y <= 80){
 
-        console.log("worked");
+        rectangle.x = rectangle.x-40;
+        rectangle.y = rectangle.y;
+
     }
         
        
