@@ -7,6 +7,12 @@ context = document.querySelector("canvas").getContext("2d");
 context.canvas.height = 360;
 context.canvas.width = 640;
 
+
+let topRectHeight = context.canvas.height - (Math.floor(Math.random() * 100) + 150);
+  let bottomRectHeight = topRectHeight- 60;
+  console.log(topRectHeight + "top");
+  console.log(bottomRectHeight + "bottom");
+
 rectangle = {
 
   height:32,
@@ -127,9 +133,10 @@ loop = function(){
   context.moveTo(0, 346);
   context.lineTo(640, 346);
   context.stroke();
-  //top rectangle
-  context.fillRect(100,0,20,120);
-  context.fillRect(100,220,20,125);
+  //top rectangle 360-
+  
+  context.fillRect(100, 0, 20, topRectHeight);
+  context.fillRect(100, 220, 20, bottomRectHeight);
   //bottom rectangle
   context.fillRect(400,0,20,120);
   context.fillRect(400,220,20,125);
