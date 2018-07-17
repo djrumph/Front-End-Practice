@@ -51,7 +51,17 @@ background-color:#ffffff;
     <canvas></canvas>
 
     <p>Use the keyboard to move the red square.</p>
+    <script>  
+      const heading = document.querySelector('h1');
+      const canvas = document.querySelector('canvas');
 
+      canvas.addEventListener('mousemove', runEvent);
+      function runEvent(e) {
+  
+        
+        heading.textContent= `MouseX: ${e.offsetX} MouseY: ${e.offsetY}`;
+      }
+      </script>
     <script src = "onwwardToFlappy.js" type = "text/javascript"></script>
 
   </body>
