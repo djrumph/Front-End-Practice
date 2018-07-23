@@ -1,13 +1,18 @@
 {
   "name": "jobby",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Web app to search for jobs",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "job",
+    "indeed",
+    "indreed",
+    "get work son"
+  ],
+  "author": "Darryl Rumph",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
