@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jobby - Job Web App</title>
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+   <!--<link rel="stylesheet" href="/css/style.css">-->
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
@@ -21,9 +21,16 @@
         }
         
         .mdl-mini-footer .mdl-logo i.material-icons {
-                color: #ff4081;
+                color: #536ddf !important;
             font-size: 22px;
             vertical-align: middle;
+        }
+        .button{
+            background-color:#536ddf !important;
+        }
+
+        .color{
+            color:#536ddf;
         }
     </style>
 </head>
@@ -53,15 +60,15 @@
                     <input class="mdl-textfield__input query-input" type="text" id="query" name="sort">
                     <label class="mdl-textfield__label" for="query">Sort By   Ex: Date, Salary</label>
                 </div>
-                <button type="submit" class="mdl-button query-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                <button type="submit" class="mdl-button query-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent button">
                     Find Jobs
                 </button>
             </form>
         </div>
         <footer class="mdl-mini-footer">
             <div class="mdl-mini-footer__left-section">
-                <div class="mdl-logo">Jobby Built  by <a href="http://twitter.com/@OyetokeT">Oyetoke Toby</a></div>
-                <div class="mdl-logo">Editid  by <a href="https://github.com/djrumph">Darryl Rumph, Jr. </a></div>
+                <div class="mdl-logo">Jobby Built  by <a href="http://twitter.com/@OyetokeT" class = "color">Oyetoke Toby</a></div>
+                <div class="mdl-logo ">Editid  by <a href="https://github.com/djrumph" class = "color">Darryl Rumph, Jr. </a></div>
             </div>
             <div class="mdl-mini-footer__right-section">
                 <ul class="mdl-mini-footer__link-list">
