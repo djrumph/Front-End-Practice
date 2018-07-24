@@ -85,20 +85,25 @@ body.search .search-ribbon {
                 </span>
             </div>
         </header>
-        <div class="search-ribbon">
-                <form method="GET">
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input query-input" type="text" id="query" name="q">
-                        <label class="mdl-textfield__label" for="query">What</label>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input query-input" type="text" id="query" name="l">
-                        <label class="mdl-textfield__label" for="query">Where</label>
-                    </div>
-                    <button type="submit" class="mdl-button query-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                        Find Jobs
-                    </button>
-                </form>
+             <div class="search-ribbon">
+            <form method="GET" action="search">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input query-input" type="text" id="query" name="q">
+                    <label class="mdl-textfield__label" for="query">What</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input query-input" type="text" id="query" name="l">
+                    <label class="mdl-textfield__label" for="query">Where</label>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input query-input" type="text" id="query" name="sort">
+                    <label class="mdl-textfield__label" for="query">Sort By   Ex: Date, Salary</label>
+                </div>
+                <button type="submit" class="mdl-button query-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    Find Jobs
+                </button>
+            </form>
         </div>
         <main class="mdl-layout__content">
             <div class="mdl-grid portfolio-max-width query-body">
@@ -110,9 +115,18 @@ body.search .search-ribbon {
                     </div>
                     <div class="mdl-card__supporting-text">
                         {{ this.summary }}
+                  
+
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        
+                        Salary: {{this.salary}}
+                        <br/>
+                        Date: {{this.date}}
+                        
                     </div>
                     <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="{{ this.url }}">Read more</a>
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="{{ this.url }}" target ="blank_">Read more</a>
                     </div>
                 </div>
                 {{/each}}
@@ -120,10 +134,8 @@ body.search .search-ribbon {
             
             <footer class="mdl-mini-footer">
                 <div class="mdl-mini-footer__left-section">
-                    <div class="mdl-logo">Jobby | Built with
-                        <i class="material-icons">favorite</i>  by
-                        <a href="http://twitter.com/@OyetokeT">Oyetoke Toby</a>
-                    </div>
+                 <div class="mdl-logo">Jobby Built  by <a href="http://twitter.com/@OyetokeT">Oyetoke Toby</a></div>
+                <div class="mdl-logo">Editid  by <a href="https://github.com/djrumph">Darryl Rumph, Jr. </a></div>
                 </div>
                 <div class="mdl-mini-footer__right-section">
                     <ul class="mdl-mini-footer__link-list">
