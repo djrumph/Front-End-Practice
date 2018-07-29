@@ -9,7 +9,7 @@ context.canvas.width = 640;
 
 
 let topRectHeight = context.canvas.height - (Math.floor(Math.random() * 100) + 150);
-  let bottomRectHeight = topRectHeight- 60;
+  let bottomRectHeight = topRectHeight+80;
   console.log(topRectHeight + "top");
   console.log(bottomRectHeight + "bottom");
 
@@ -41,6 +41,7 @@ controller  = {
     left:false,
     right:false,
     up:false,
+    down:false,
     keyListener:function(event){
         
      let key_state = (event.type =="keydown")?true:false;
@@ -55,6 +56,10 @@ controller  = {
         case 39: //right key
             controller.right = key_state;
         break;
+        case 40: //down key, ONLY FOR DEBUGGING
+            controller.down = key_state;
+        break;
+     
      }
 
     }
@@ -69,6 +74,14 @@ loop = function(){
         
     }
 
+    //THIS IF STATEMENT ONLY FOR DEBUGGING
+    if (controller.down /*&& rectangle.jumping == false*/){
+
+        rectangle.y_velocity += 1;
+        //rectangle.jumping = true;
+        
+    }
+
     if(controller.left){
         rectangle.x_velocity -= 0.5;
     }
@@ -77,7 +90,7 @@ loop = function(){
         rectangle.x_velocity +=0.5;
     }
 
-    rectangle.y_velocity += 1.0;// gravity
+   // rectangle.y_velocity += 1.0;// gravity
     rectangle.x += rectangle.x_velocity;
     rectangle.y += rectangle.y_velocity;
     rectangle.x_velocity *= 0.9;//friction
@@ -107,18 +120,18 @@ loop = function(){
     }   
 
     //first try at collision detection
-    if(rectangle.x >=100 && rectangle.x <=120 && rectangle.y >= 220 || rectangle.x >=100 && rectangle.x <=120 && rectangle.y <= 80){
+    if(rectangle.x >=70 && rectangle.x <=120 && rectangle.y >= bottomRectHeight -20 || rectangle.x >=70 && rectangle.x <=120 && rectangle.y <=  topRectHeight){
 
-        rectangle.x = rectangle.x-40;
+        rectangle.x = 70;
         rectangle.y = rectangle.y;
 
     }
         
        
      //if rectangle goes past right boundary
-    else if (rectangle.x >640){
+    else if (rectangle.x >608){
 
-        rectangle.x = -64;
+        rectangle.x = 0;
     }
 
   context.fillStyle = "#202020";
@@ -136,7 +149,7 @@ loop = function(){
   //top rectangle 360-
   
   context.fillRect(100, 0, 20, topRectHeight);
-  context.fillRect(100, 220, 20, bottomRectHeight);
+  context.fillRect(100, topRectHeight+80, 20, bottomRectHeight);
   //bottom rectangle
   context.fillRect(400,0,20,120);
   context.fillRect(400,220,20,125);
