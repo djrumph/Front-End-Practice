@@ -120,7 +120,7 @@ loop = function(){
     }   
 
     //first try at collision detection
-    if(rectangle.x >=70 && rectangle.x <=120 && rectangle.y >= bottomRectHeight -20 || rectangle.x >=70 && rectangle.x <=120 && rectangle.y <=  topRectHeight){
+    if(rectangle.x >=70 && rectangle.x <=120 && rectangle.y >= bottomRectHeight -30 || rectangle.x >=70 && rectangle.x <=120 && rectangle.y <=  topRectHeight){
 
         rectangle.x = 70;
         rectangle.y = rectangle.y;
