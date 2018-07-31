@@ -88,6 +88,8 @@ loop = function(){
         rectangle.y_velocity += 1;
         //rectangle.jumping = true;
         
+     
+ 
     }
 
     if(controller.left){
@@ -111,7 +113,7 @@ loop = function(){
         rectangle.y_velocity = 0;
 
     }
-//if rectqngle goes meets top of window
+//if rectangle goes meets top of window
     if(rectangle.y <0){
         rectangle.jumping = false;
         rectangle.y = 0;
@@ -157,25 +159,35 @@ loop = function(){
   context.stroke();
   //top rectangle 360-
   
-  context.fillRect(pipeSpeedFirst, 0, 20, topRectHeight);
-  context.fillRect(pipeSpeedFirst, topRectHeight+80, 20, bottomRectHeight);
+  draw();
   //bottom rectangle
  // context.fillRect(pipeSpeedSecond,0,20,120);
   //context.fillRect(pipeSpeedSecond,220,20,125);
 
     //call update when the browser is ready to draw again
-    window.requestAnimationFrame(loop);
+    
 pipeSpeedFirst-=1;
 pipeSpeedSecond -=1;
 
 xCollision = pipeSpeedFirst;
+window.requestAnimationFrame(loop);
 
-
-    
+    //console.log(pipeSpeedFirst);
 
 };
 
-function animate(){
+function draw(){
+
+    context.fillRect(pipeSpeedFirst, 0, 20, topRectHeight);
+    context.fillRect(pipeSpeedFirst, topRectHeight+80, 20, bottomRectHeight);
+    if(pipeSpeedFirst <=0){
+        pipeSpeedFirst = 600;
+    context.fillRect(pipeSpeedFirst, 0, 20, topRectHeight);
+    context.fillRect(pipeSpeedFirst, topRectHeight+80, 20, bottomRectHeight);
+    }
+  
+
+
     
 }
 
