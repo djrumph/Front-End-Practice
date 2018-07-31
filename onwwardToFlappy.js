@@ -10,10 +10,16 @@ context.canvas.width = 640;
 let xCollision;
 
 
-let topRectHeight = context.canvas.height - (Math.floor(Math.random() * 100) + 150);
-  let bottomRectHeight = topRectHeight+80;
-  console.log(topRectHeight + "top");
-  console.log(bottomRectHeight + "bottom");
+// let topRectHeight = context.canvas.height - (Math.floor(Math.random() * 200) + 150);
+//   let bottomRectHeight = topRectHeight+80;
+//   console.log(topRectHeight + "top");
+//   console.log(bottomRectHeight + "bottom");
+
+  let topRectHeight =  (Math.floor(Math.random() * 200) + 20);
+  let bottomRectHeight = context.canvas.height- topRectHeight;
+   console.log(topRectHeight + "top");
+   console.log(bottomRectHeight + "bottom");
+
 
   let pipeSpeedFirst = 600;
 
@@ -21,10 +27,10 @@ let topRectHeight = context.canvas.height - (Math.floor(Math.random() * 100) + 1
 
 rectangle = {
 
-  height:32,
+  height:16,
   jumping:true,
-  width:32,
-  x:544, // center of the canvas
+  width:16,
+  x:244, // center of the canvas
   x_velocity:0,
   y:0,
   y_velocity:0
@@ -100,7 +106,7 @@ loop = function(){
         rectangle.x_velocity +=0.5;
     }
 
-   // rectangle.y_velocity += 1.0;// gravity
+   rectangle.y_velocity += 1.0;// gravity
     rectangle.x += rectangle.x_velocity;
     rectangle.y += rectangle.y_velocity;
     rectangle.x_velocity *= 0.9;//friction
@@ -130,10 +136,10 @@ loop = function(){
     }   
 
     //first try at collision detection
-    if(rectangle.x >=pipeSpeedFirst-32 && /*rectangle.x <= 120 &&*/ rectangle.y >= bottomRectHeight -30 || rectangle.x >=pipeSpeedFirst-32 && /*rectangle.x <=620 &&*/ rectangle.y <=  topRectHeight){
+    if(rectangle.x >=pipeSpeedFirst-rectangle.width && /*rectangle.x <= 120 &&*/ rectangle.y >= bottomRectHeight -30 || rectangle.x >=pipeSpeedFirst-rectangle.width && /*rectangle.x <=620 &&*/ rectangle.y <=  topRectHeight){
 
        // console.log(pipeSpeedFirst);
-        rectangle.x = xCollision-32;
+        rectangle.x = xCollision-rectangle.width;
         rectangle.y = rectangle.y;
 
     }
@@ -166,7 +172,7 @@ loop = function(){
 
     //call update when the browser is ready to draw again
     
-pipeSpeedFirst-=1;
+pipeSpeedFirst-=0;
 pipeSpeedSecond -=1;
 
 xCollision = pipeSpeedFirst;
@@ -182,9 +188,12 @@ function draw(){
     context.fillRect(pipeSpeedFirst, topRectHeight+80, 20, bottomRectHeight);
     if(pipeSpeedFirst <=0){
         pipeSpeedFirst = 600;
+         topRectHeight =  (Math.floor(Math.random() * 200) + 20);
+         bottomRectHeight = context.canvas.height- topRectHeight;
     context.fillRect(pipeSpeedFirst, 0, 20, topRectHeight);
     context.fillRect(pipeSpeedFirst, topRectHeight+80, 20, bottomRectHeight);
-    }
+    console.log(topRectHeight + "top");
+}
   
 
 
