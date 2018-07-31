@@ -13,6 +13,10 @@ let topRectHeight = context.canvas.height - (Math.floor(Math.random() * 100) + 1
   console.log(topRectHeight + "top");
   console.log(bottomRectHeight + "bottom");
 
+  let pipeSpeedFirst = 100;
+
+  let pipeSpeedSecond = 400;
+
 rectangle = {
 
   height:32,
@@ -30,7 +34,7 @@ pipe = {
     height:100,
     width:32,
     x:200, // center of the canvas
-    x_velocity:0,
+    x_velocity:5,
     y:0,
     y_velocity:0
   
@@ -66,6 +70,8 @@ controller  = {
 };
 
 loop = function(){
+
+    pipe.x_velocity =5;
 
     if (controller.up /*&& rectangle.jumping == false*/){
 
@@ -148,17 +154,23 @@ loop = function(){
   context.stroke();
   //top rectangle 360-
   
-  context.fillRect(100, 0, 20, topRectHeight);
-  context.fillRect(100, topRectHeight+80, 20, bottomRectHeight);
+  context.fillRect(pipeSpeedFirst, 0, 20, topRectHeight);
+  context.fillRect(pipeSpeedFirst, topRectHeight+80, 20, bottomRectHeight);
   //bottom rectangle
-  context.fillRect(400,0,20,120);
-  context.fillRect(400,220,20,125);
+  context.fillRect(pipeSpeedSecond,0,20,120);
+  context.fillRect(pipeSpeedSecond,220,20,125);
 
     //call update when the browser is ready to draw again
     window.requestAnimationFrame(loop);
+pipeSpeedFirst-=1;
+pipeSpeedSecond -=1;
+    
 
 };
 
+function animate(){
+    
+}
 
 window.addEventListener("keydown", controller.keyListener);
 window.addEventListener("keyup", controller.keyListener);
