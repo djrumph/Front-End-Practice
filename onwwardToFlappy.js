@@ -7,13 +7,15 @@ context = document.querySelector("canvas").getContext("2d");
 context.canvas.height = 360;
 context.canvas.width = 640;
 
+let xCollision;
+
 
 let topRectHeight = context.canvas.height - (Math.floor(Math.random() * 100) + 150);
   let bottomRectHeight = topRectHeight+80;
   console.log(topRectHeight + "top");
   console.log(bottomRectHeight + "bottom");
 
-  let pipeSpeedFirst = 100;
+  let pipeSpeedFirst = 600;
 
   let pipeSpeedSecond = 400;
 
@@ -22,7 +24,7 @@ rectangle = {
   height:32,
   jumping:true,
   width:32,
-  x:144, // center of the canvas
+  x:544, // center of the canvas
   x_velocity:0,
   y:0,
   y_velocity:0
@@ -126,9 +128,10 @@ loop = function(){
     }   
 
     //first try at collision detection
-    if(rectangle.x >=70 && rectangle.x <=120 && rectangle.y >= bottomRectHeight -30 || rectangle.x >=70 && rectangle.x <=120 && rectangle.y <=  topRectHeight){
+    if(rectangle.x >=pipeSpeedFirst-32 && /*rectangle.x <= 120 &&*/ rectangle.y >= bottomRectHeight -30 || rectangle.x >=pipeSpeedFirst-32 && /*rectangle.x <=620 &&*/ rectangle.y <=  topRectHeight){
 
-        rectangle.x = 70;
+       // console.log(pipeSpeedFirst);
+        rectangle.x = xCollision-32;
         rectangle.y = rectangle.y;
 
     }
@@ -157,13 +160,17 @@ loop = function(){
   context.fillRect(pipeSpeedFirst, 0, 20, topRectHeight);
   context.fillRect(pipeSpeedFirst, topRectHeight+80, 20, bottomRectHeight);
   //bottom rectangle
-  context.fillRect(pipeSpeedSecond,0,20,120);
-  context.fillRect(pipeSpeedSecond,220,20,125);
+ // context.fillRect(pipeSpeedSecond,0,20,120);
+  //context.fillRect(pipeSpeedSecond,220,20,125);
 
     //call update when the browser is ready to draw again
     window.requestAnimationFrame(loop);
 pipeSpeedFirst-=1;
 pipeSpeedSecond -=1;
+
+xCollision = pipeSpeedFirst;
+
+
     
 
 };
