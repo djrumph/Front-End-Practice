@@ -106,7 +106,7 @@ loop = function(){
         rectangle.x_velocity +=0.5;
     }
 
-   rectangle.y_velocity += 1.0;// gravity
+   //rectangle.y_velocity += 1.0;// gravity
     rectangle.x += rectangle.x_velocity;
     rectangle.y += rectangle.y_velocity;
     rectangle.x_velocity *= 0.9;//friction
@@ -135,8 +135,8 @@ loop = function(){
 
     }   
 
-    //first try at collision detection
-    if(rectangle.x >=pipeSpeedFirst-rectangle.width && /*rectangle.x <= 120 &&*/ rectangle.y >= bottomRectHeight -30 || rectangle.x >=pipeSpeedFirst-rectangle.width && /*rectangle.x <=620 &&*/ rectangle.y <=  topRectHeight){
+    //first try at collision detection //FIX THIS
+    if(rectangle.x >=pipeSpeedFirst-rectangle.width  && /*rectangle.x <= 120 &&*/ rectangle.y >= bottomRectHeight -40 || rectangle.x >=pipeSpeedFirst-rectangle.width && /*rectangle.x <=620 &&*/ rectangle.y <=  topRectHeight){
 
        // console.log(pipeSpeedFirst);
         rectangle.x = xCollision-rectangle.width;
@@ -148,7 +148,7 @@ loop = function(){
      //if rectangle goes past right boundary
     else if (rectangle.x >608){
 
-        rectangle.x = 0;
+        rectangle.x = 550;
     }
 
   context.fillStyle = "#202020";
